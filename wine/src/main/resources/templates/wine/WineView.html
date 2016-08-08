@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/LayoutPadrao">
+
+<head>
+<title th:text="${wine.name}">Vinâ</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/vendors.min.css}"/>
+</head>
+
+<body>
+	<section layout:fragment="conteudo">
+
+		<div class="page-header">
+			<div class="container-fluid">
+				<h1 th:text="${wine.name}" ></h1>
+			</div>
+		</div>
+		
+		<div class="container-fluid">
+			<div class="col-sm-9">
+				<div id="upload-drop" class="wn-upload">
+				
+					<img th:src="@{/images/mockup-bottle.png}"></img>
+				
+					<div>
+					<span>Drop files to intantly upload them to data base</span>
+					<a class="wn-upload-form-file"> Select <input id="upload-select" type="file" accept=".jpg,.jpeg,.png" /></a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-3">
+				<div class="list-group">
+					<ul class="list-group">
+						<li class="list-group-item" th:text="| Wine ${wine.type.description}|">Red</li>
+						<li class="list-group-item" th:text="| ${wine.volume} ml|">750</li>
+						<li class="list-group-item" th:text="${wine.harvest}">2001</li>
+						<li class="list-group-item" th:text="|$ ${wine.value}|">5200.00</li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+	
+	<th:block layout:fragment="javascript-extra">
+		<script th:src="@{/javascripts/vendors/uikit.min.js}"></script>
+		<script th:src="@{/javascripts/vendors/upload.min.js}"></script>
+		<script th:src="@{/javascripts/wine.upload-foto.js}"></script>
+	</th:block>
+	
+</body>
+</html>
