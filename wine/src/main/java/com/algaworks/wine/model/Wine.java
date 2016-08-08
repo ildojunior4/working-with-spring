@@ -39,6 +39,9 @@ public class Wine {
 	@NotNull(message= "Value is required")
 	@Column(name="ovalue")
 	private BigDecimal value;
+	
+	private String photo;
+
 
 	//POJO
 	public Long getCode() {
@@ -89,6 +92,15 @@ public class Wine {
 		this.value = value;
 	}
 
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

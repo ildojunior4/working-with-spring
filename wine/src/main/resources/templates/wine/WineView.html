@@ -5,8 +5,9 @@
 	layout:decorator="layout/LayoutPadrao">
 
 <head>
-<title th:text="${wine.name}">Vinâ</title>
-		<link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/vendors.min.css}"/>
+	<title th:text="${wine.name}">Vinâ</title>
+	
+	<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/vendors/upload.min.css}"/>
 </head>
 
 <body>
@@ -19,14 +20,16 @@
 		</div>
 		
 		<div class="container-fluid">
-			<div class="col-sm-9">
-				<div id="upload-drop" class="wn-upload">
+			<div class="col-sm-9 js-container-foto">
+				<div id="upload-drop" class="wn-upload" th:attr="data-code=${wine.code}">
 				
 					<img th:src="@{/images/mockup-bottle.png}"></img>
 				
 					<div>
-					<span>Drop files to intantly upload them to data base</span>
-					<a class="wn-upload-form-file"> Select <input id="upload-select" type="file" accept=".jpg,.jpeg,.png" /></a>
+						<span>Drop files to intantly upload them to data base</span>
+						<a class="wn-upload-form-file"> 
+							Select <input id="upload-select" type="file" accept=".jpg,.jpeg,.png" />
+						</a>
 					</div>
 				</div>
 			</div>

@@ -16,5 +16,11 @@ public class CreateWineService {
 		//Write job rules
 		this.wines.save(wine);
 	}
+	
+	public void addPhoto(Long code, String name){
+		Wine wine = wines.findOne(code);
+		wine.setPhoto(name);
+		wines.save(wine);
+	}
 
 }

@@ -1,0 +1,2 @@
+ALTER TABLE wine
+	ADD photo VARCHAR(100);
