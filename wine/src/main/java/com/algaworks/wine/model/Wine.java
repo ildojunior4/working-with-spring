@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -41,7 +42,9 @@ public class Wine {
 	private BigDecimal value;
 	
 	private String photo;
-
+	
+	@Transient
+	private String uri;
 
 	//POJO
 	public Long getCode() {
@@ -101,6 +104,14 @@ public class Wine {
 	}
 
 	
+	public String getUri() {
+		return uri;
+	}
+
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -22,8 +22,8 @@ public class PhotosController {
 	public Photo upload(@PathVariable Long code
 			,@RequestParam("files[]") MultipartFile[] files){
 		
-		createWineService.addPhoto(code, files[0].getOriginalFilename());
-		return new Photo(files[0].getOriginalFilename());
+		String uri = createWineService.savePhoto(code, files[0]);
+		return new Photo(uri);
 	}
 
 }

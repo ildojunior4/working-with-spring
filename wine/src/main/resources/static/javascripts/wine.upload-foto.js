@@ -1,5 +1,6 @@
 $(function(){
 	var uploadDrop = $('#upload-drop');
+	var photoContainer = $('.js-container-foto');
 	
 	var settings = {
 		type: 'json',
@@ -7,7 +8,8 @@ $(function(){
 		allow: '*.(jpg|jpeg|png)',
 		action: '/photos/' + uploadDrop.data('code'),
 		complete: function(photo){
-			console.log("....resonse", photo.name);
+			uploadDrop.addClass('hidden');
+			photoContainer.prepend('<img src="'+ photo.uri + '">');
 		}
 	};
 	

@@ -2,17 +2,17 @@ package com.algaworks.wine.dto;
 //Data transfer object Patern
 
 public class Photo {
-	private String name;
+	private String uri;
 
-	public Photo(String name) {
-		this.setName(name);
+	public Photo(String uri) {
+		this.setName(uri);
 	}
 
-	public String getName() {
-		return name;
+	public String getUri() {
+		return uri;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String uri) {
+		this.uri = uri;
 	}
 }
