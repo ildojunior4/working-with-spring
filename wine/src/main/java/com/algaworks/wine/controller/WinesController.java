@@ -15,6 +15,7 @@ import com.algaworks.wine.model.Wine;
 import com.algaworks.wine.model.WineType;
 import com.algaworks.wine.repository.Wines;
 import com.algaworks.wine.service.CreateWineService;
+import com.algaworks.wine.storage.PhotoStorage;
 
 @Controller
 @RequestMapping("/wines")
@@ -22,6 +23,9 @@ public class WinesController {
 
 	@Autowired
 	private Wines wines;
+	
+	@Autowired
+	private PhotoStorage photoStorage;
 	
 	@Autowired
 	private CreateWineService createWineService;
@@ -54,6 +58,9 @@ public class WinesController {
 	@RequestMapping("/{code}")
 	public ModelAndView visualize(@PathVariable("code") Wine wine){
 		ModelAndView mv = new ModelAndView("/wine/WineView");
+		if(wine.hasPhoto()){
+			wine.setUri(photoStorage.getUri(wine.getPhoto()));
+		}
 		mv.addObject("wine",wine);
 		return mv;
 	}

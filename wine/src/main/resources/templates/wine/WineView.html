@@ -21,10 +21,11 @@
 		
 		<div class="container-fluid">
 			<div class="col-sm-9 js-container-foto">
-				<img th:src="${wine.uri}">
-			
+				<img th:src="${wine.uri}" th:if="${wine.hasPhoto()}" class="img-responsive img-center"/>
+				
 				<div id="upload-drop" class="wn-upload" th:attr="data-code=${wine.code}" 
-					th:if="${#strings.isEmpty(wine.photo)}">
+					th:if="${!wine.hasPhoto()}">
+					
 					<img th:src="@{/images/mockup-bottle.png}"></img>
 					<div>
 						<span>Drop files to intantly upload them to data base</span>

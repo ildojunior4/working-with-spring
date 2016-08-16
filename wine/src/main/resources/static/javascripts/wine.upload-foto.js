@@ -9,7 +9,7 @@ $(function(){
 		action: '/photos/' + uploadDrop.data('code'),
 		complete: function(photo){
 			uploadDrop.addClass('hidden');
-			photoContainer.prepend('<img src="'+ photo.uri + '">');
+			photoContainer.prepend('<img src="'+ photo.uri + '" class="img-responsive img-center"/>');
 		}
 	};
 	
