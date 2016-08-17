@@ -26,7 +26,7 @@
 				<span th:text="${message}"></span>
 			</div>
 			<form method="POST" th:object="${wine}"
-				class="form-vertical  js-form-loading">
+				class="form-vertical  js-form-loading" th:action="@{/wines/new}">
 
 				<div class="alert  alert-danger  alert-dismissible" role="alert"
 					th:if="${#fields.hasAnyErrors()}">
